@@ -9,6 +9,8 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 /*Объявляем контроллер для сокета*/
@@ -17,9 +19,10 @@ public class WebSocketController {
     @Autowired
     ISimpleService simpleService;
 
-    @RequestMapping("/") //открываем нашу страничку start.jsp по умолчанию
-    public String start() {
-        return "start";
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @ResponseBody
+    public String showIndex() {
+        return "index";
     }
 
     /**

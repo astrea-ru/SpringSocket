@@ -1,0 +1,1 @@
+angular.module('SocketApp',['SocketApp.controllers']);

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+    <script src="resources/libs/angular.js"></script>
+    <!--<script src="resources/libs/bootstrap/js/bootstrap.js"></script>-->
+    <link href="resources/libs/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+    <script src="resources/libs/sockjs-0.3.4.js"></script> <!-- Библиотека для унификации и упрощения работы с сокетами, независимо от используемого браузера -->
+    <script src="resources/libs/stomp.js"></script> <!-- Библиотека для работы с протоколом STOMP -->
+    <meta charset="utf-8"/>
+
+    <script type="text/javascript" src="resources/app.js"></script>
+    <script type="text/javascript" src="resources/controller.js"></script>
+</head>
+<body ng-app="SocketApp">
+    <div ng-controller="socketCtrl">
+        <h1>Check socket work</h1>
+
+        <div>
+            <button id="connectMsg" ng-disabled="isConnect" ng-click="connect(handler)">Connect</button>
+            <button id="disconnectMsg" ng-disabled="!isConnect" ng-click="disconnect()">Disconnect</button>
+            <button id="sendRequestForMsg" ng-disabled="!isConnect" ng-click="send()">Message request</button>
+        </div>
+
+        <br/>
+        <br/>
+        <p>{{result}}</p>
+    </div>
+</body>
+</html>
